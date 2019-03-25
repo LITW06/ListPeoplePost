@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication13.Models;
 
 namespace WebApplication13.Controllers
 {
@@ -13,18 +14,11 @@ namespace WebApplication13.Controllers
             return View();
         }
 
-        public ActionResult About()
+        [HttpPost]
+        public ActionResult AddPerson(List<Person> people)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return Redirect("/home/index");
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
