@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebApplication13.Models;
+using PeopleList.Data;
 
 namespace WebApplication13.Controllers
 {
@@ -11,14 +11,24 @@ namespace WebApplication13.Controllers
     {
         public ActionResult Index()
         {
+            var mgr = new PersonManager(Properties.Settings.Default.ConStr);
+            return View(mgr.GetPeople());
+        }
+
+        public ActionResult Add()
+        {
             return View();
         }
 
         [HttpPost]
-        public ActionResult AddPerson(List<Person> people)
+        public ActionResult Add(IEnumerable<Person> people)
         {
+            var mgr = new PersonManager(Properties.Settings.Default.ConStr);
+            mgr.AddPeople(people);
             return Redirect("/home/index");
         }
+
+        
 
     }
 }

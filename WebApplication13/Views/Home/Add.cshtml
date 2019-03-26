@@ -1,0 +1,25 @@
+﻿<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <button class="btn btn-danger" id="add-rows">Add Row</button>
+        <form method="post" action="/home/add">
+            <div id="ppl-rows">
+                <div class="row">
+                    <div class="col-md-4">
+                        <input class="form-control" type="text" name="people[0].firstname" placeholder="First Name" />
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" type="text" name="people[0].lastname" placeholder="Last Name" />
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" type="text" name="people[0].age" placeholder="Age" />
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+@section scripts {
+    <script src="/Scripts/index.js"></script>
+}

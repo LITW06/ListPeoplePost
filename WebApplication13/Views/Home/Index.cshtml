@@ -1,51 +1,21 @@
-﻿
+﻿@using PeopleList.Data
+@model IEnumerable<Person>
+    
 <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-
-        <form method="post" action="/home/addperson">
-            <div class="row">
-                <div class="col-md-4">
-                    <input type="text" placeholder="First Name" name="people[0].firstname" class="form-control" />
-                </div>
-                <div class="col-md-4">
-                    <input type="text" placeholder="Last Name" name="people[0].lastname" class="form-control" />
-                </div>
-                <div class="col-md-4">
-                    <input type="text" placeholder="Age" name="people[0].age" class="form-control" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <input type="text" placeholder="First Name" name="people[1].firstname" class="form-control" />
-                </div>
-                <div class="col-md-4">
-                    <input type="text" placeholder="Last Name" name="people[1].lastname" class="form-control" />
-                </div>
-                <div class="col-md-4">
-                    <input type="text" placeholder="Age" name="people[1].age" class="form-control" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <input type="text" placeholder="First Name" name="people[2].firstname" class="form-control" />
-                </div>
-                <div class="col-md-4">
-                    <input type="text" placeholder="Last Name" name="people[2].lastname" class="form-control" />
-                </div>
-                <div class="col-md-4">
-                    <input type="text" placeholder="Age" name="people[2].age" class="form-control" />
-                </div>
-            </div>
-            
-            <button class="btn btn-primary">Submit</button>
-        </form>
-        <button id="mybutton" class="btn btn-danger">Add HTML</button>
-        <ul id="numbers">
-
-        </ul>
-    </div>
+    <a href="/home/add" class="btn btn-success">Add People</a>
+    <table class="table table-hover table-bordered">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+        </tr>
+        @foreach (var person in Model)
+        {
+            <tr>
+                <td>@person.FirstName</td>
+                <td>@person.LastName</td>
+                <td>@person.Age</td>
+            </tr>
+        }
+    </table>
 </div>
-
-@section scripts {
-    <script src="/Scripts/index.js"></script>
-}
